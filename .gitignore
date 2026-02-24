@@ -1,3 +1,17 @@
 Experiment Schedule.pdf
 Sub Group division.pdf
-Lab/
+Lab/Fabry-Perot
+
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# excel 
+~$*.xlsx
+# Jupyter
+.ipynb_checkpoints/
