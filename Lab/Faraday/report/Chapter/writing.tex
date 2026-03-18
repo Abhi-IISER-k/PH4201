@@ -30,6 +30,152 @@ Here is the list of required equipment for the Faraday effect setup:
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theory}
+
+\subsection{Optical Rotation for Linearly Polarized Light}
+
+A linearly polarized plane wave propagating along the $x$-direction can be expressed as a superposition of right and left circularly polarized components:
+\begin{equation}
+\mathbf{E}(x,t) = \mathbf{E}_r + \mathbf{E}_l
+\end{equation}
+where 
+\begin{subequations}
+    \begin{align}
+        E_r(x,t) &= \left\{ 0,\; \frac{A}{2}\cos\left[\omega\left(t - \frac{n_r x}{c}\right)\right],\; \frac{A}{2}\sin\left[\omega\left(t - \frac{n_r x}{c}\right)\right] \right\} \label{eq:Er}\\
+        E_l(x,t) &= \left\{ 0,\; \frac{A}{2}\cos\left[\omega\left(t - \frac{n_l x}{c}\right)\right],\; -\frac{A}{2}\sin\left[\omega\left(t - \frac{n_l x}{c}\right)\right] \right\} \label{eq:El}
+    \end{align}
+\end{subequations}
+represent the electric vectors in plane waves of right and left circularly polarized light,
+respectively.  The amplitude of $E$ is $A$, and the velocity of propagation is $c/n$ where $n$ is the index of refraction. Thus a beam of linearly polarized light can be considered as a linear superposition of right and left circularly polarized components.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{Image/Electromagnetic wave.png}
+    \caption{Addition of right and left circularly polarized components on two planes defined by $x=0$ and $x=D$, respectively. Because $n_l > n_r$, $E_l$ is more retarded in phase at $x=D$ relative to $x=0$ than $E_r$, with the result that their sum at $x=D$ is rotated clockwise by the angle $\psi = \pi (n_l - n_r)D/\lambda$.}
+    \label{fig:lin_to_circ}
+\end{figure}
+To indicate a difference in velocities for right and left circularly polarized waves the index n is replaced in equations (\ref{eq:Er}) and (\ref{eq:El}) by $n_r$ and $n_l$, respectively. As illustrated in \cref{fig:lin_to_circ}, the electric vector on the y-z plane at x=D is then
+\begin{equation}
+\boldsymbol{E}(D,t) = \boldsymbol{E}_r(D,t) + \boldsymbol{E}_l(D,t)
+\end{equation}
+Using the identities
+\begin{equation}
+\cos\alpha + \cos\beta = 2 \cos\left(\frac{\alpha+\beta}{2}\right)\cos\left(\frac{\alpha-\beta}{2}\right)
+\end{equation}
+and
+\begin{equation}
+\sin\alpha - \sin\beta = 2 \cos\left(\frac{\alpha+\beta}{2}\right)\sin\left(\frac{\alpha-\beta}{2}\right)
+\end{equation}
+we find for the electric field at $x = D$ the expression
+\begin{equation*}
+\begin{aligned}\boldsymbol{E}(D,t) = \{
+&0, \; A \cos\left[\omega\left(t - (n_r + n_l)D/2c\right)\right] \cos\left[\omega(n_l - n_r)D/2c\right], \\ 
+&A \cos\left[\omega\left(t - (n_r + n_l)D/2c\right)\right] \sin\left[\omega(n_l - n_r)D/2c\right] \}
+\end{aligned}
+\end{equation*}
+This represents an oscillating electric field of amplitude A inclined with respect to the y-
+axis by an angle
+
+\begin{equation}
+\psi = \tan^{-1}\left( \frac{E_z}{E_y} \right) = \frac{\omega (n_l - n_r)D}{2c} = \frac{\pi (n_l - n_r)D}{\lambda}, \label{eq:optical_rot}
+\end{equation}
+where $\lambda$ is the wavelength of the light in vacuum. Thus circular birefringence can be explained as an effect of a difference in the propagation velocities of right and left circularly polarized light. The difference is generally very small, amounting to only a few parts per million in optically active materials as well as in the Faraday effect at moderate magnetic field strengths. However, in a typical setup $D/\lambda \gg 1$ so that even minute differences between $n_l$ and $n_r$ yield values of $\psi$ which are large enough to be measured accurately.
+
+\begin{equation}
+\boxed{\psi = \frac{\pi D}{\lambda}(n_l - n_r)}
+\end{equation}
+
+\subsection{Becquerel calculation on frequency shift}
+We consider a transparent medium composed of particles of mass $m$ and charge $q$. These particles are embedded in a background of opposite charge and are bound by an elastic restoring force, allowing them to oscillate about fixed equilibrium positions.
+
+We examine the case where a constant magnetic field $\mathbf{B}$ of magnitude $B$ is applied along the $+x$-direction. A plane right circularly polarized electromagnetic wave propagates along the same direction. At a given point, the wave produces a time-varying electric field $\mathbf{E}$ of constant magnitude $E$, which rotates in a plane perpendicular to $\mathbf{B}$ and in a clockwise sense relative to the direction of $\mathbf{B}$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.6\textwidth]{Image/Becquerel_img.jpg}
+    \caption{A particle of mass $m$ and charge $q$ is attached to a spring with spring constant $k$, which is fixed along the $x$-axis. The direction of propagation of light and the applied magnetic field $\mathbf{B}$ are both along the $x$-axis. The electric field $\mathbf{E}$ is perpendicular to the $x$-axis and rotates in the $yz$-plane.}
+    \label{fig:Becquerel_img}
+\end{figure}
+
+Under \emph{steady-state conditions}, the charged particles execute circular motion of radius $r$, governed by the equation (in cgs units):
+\begin{equation}
+- m \omega^2 r = - k r + qE + \frac{qB}{c}\,\omega r
+\end{equation}
+
+where $k$ represents the effective spring constant associated with the restoring force. For left circularly polarized light, the sign of the magnetic term changes.
+
+Solving the above equation for $r$, we obtain
+\begin{equation}
+r = \frac{qE/m}{\omega_0^2 - \omega^2 - \frac{qB}{mc}\,\omega}
+\end{equation}
+where
+\begin{equation}
+\omega_0 = \sqrt{\frac{k}{m}}.
+\end{equation}
+
+A displacement of a charge $q$ from its oppositely charged equilibrium position by a distance $r$ produces an electric dipole of magnitude $qr$. If there are $N$ such dipoles per unit volume, the polarization is given by $P = Nqr$, and the permittivity becomes
+\[
+\varepsilon = 1 + \frac{4\pi P}{E}.
+\]
+
+Thus, for a dielectric medium with permeability $\mu = 1$, the velocity of propagation is $v = \frac{c}{\sqrt{\varepsilon}}$. In the presence of a magnetic field, the refractive index for right circularly polarized light is
+
+\begin{equation}
+n_r(\omega) = \frac{c}{v} = \left[ 1 + \frac{4\pi N q^2 / m}{\omega_0^2 - \omega^2 - \frac{qB}{mc}\,\omega} \right]^{1/2}
+\end{equation}
+and for left circularly polarized light,
+\begin{equation}
+n_l(\omega) = \frac{c}{v} = \left[ 1 + \frac{4\pi N q^2 / m}{\omega_0^2 - \omega^2 + \frac{qB}{mc}\,\omega} \right]^{1/2}.
+\end{equation}
+Above equations indicate that the refractive indices diverge as the frequency of light approaches the condition
+\[
+\omega_0^2 - \omega^2 \pm \frac{qB}{mc}\,\omega = 0.
+\]
+This unphysical behaviour arises from the absence of a damping term in the equation of motion. In a more realistic treatment, a damping force proportional to the particle velocity is included, which accounts for absorption. Both the refractive index and the absorption coefficient exhibit maxima near $\omega_0$. However, for frequencies sufficiently far from $\omega_0$, neglecting damping introduces negligible error.
+
+The influence of the magnetic field on the refractive indices of circularly polarized light depends on the sign of the product $qB$. For right circularly polarized light with the magnetic field directed along the propagation direction ($B_x > 0$) and for negatively charged particles ($q < 0$), the product $qB < 0$. This leads to a decrease in $n_r$ and a corresponding increase in $n_l$. Hence, $(n_l - n_r) > 0$, which implies a positive rotation angle.
+
+The change in $n_r$ due to the applied magnetic field can be interpreted as an effective shift in the frequency from $\omega$ to $\omega + \Delta \omega_r$, where $\Delta \omega_r$ satisfies
+\begin{equation}
+\omega^2 + \frac{qB}{mc}\,\omega = (\omega + \Delta \omega_r)^2.
+\end{equation}
+
+Solving this equation and neglecting higher-order small terms gives
+\begin{equation}
+\boxed{\Delta \omega_r = \frac{qB}{2mc}.}
+\end{equation}
+
+Similarly, for left circularly polarized light,
+\begin{equation}
+\omega^2 - \frac{qB}{mc}\,\omega = (\omega + \Delta \omega_l)^2,
+\end{equation}
+
+which yields
+\begin{equation}
+\boxed{\Delta \omega_l = -\frac{qB}{2mc}.}
+\end{equation}
+
+Since these frequency shifts are much smaller than $\omega$, the difference in refractive indices can be expressed to a very good approximation using a \emph{first-order expansion.}
+\begin{equation}
+n_l - n_r = \frac{dn}{d\omega}(\Delta \omega_l - \Delta \omega_r).
+\end{equation}
+Substituting the expressions for $\Delta \omega_r$ and $\Delta \omega_l$, we obtain
+\begin{equation}
+n_l - n_r = \frac{dn}{d\lambda}\left(\frac{\lambda^2}{2\pi c}\right)\left(\frac{qB}{mc}\right), \label{eq:refrac_diff}
+\end{equation}
+where $\lambda = \frac{2\pi c}{\omega}$ is the wavelength of light in vacuum.
+
+Combining \cref{eq:optical_rot} and \ref{eq:refrac_diff} the \emph{Faraday rotation} angle is given by
+\begin{equation}
+\psi = \frac{dn}{d\lambda} \frac{\lambda}{2c^2}\frac{q}{m} \, DB.
+\end{equation}
+Experimentally it was verified that the Faraday rotation angle $\psi$ is proportional to the product of $D$ and the magnetic field $B$, thus
+\begin{equation}
+    \boxed{\psi = VDB,}
+\end{equation}
+Thus, the \textbf{Verdet constant} can be written as by comparing 
+\begin{equation}
+\boxed{V = \frac{dn}{d\lambda} \frac{\lambda}{2c^2}\frac{q}{m}.}
+\end{equation}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Procedure}
 We have followed the following procedure to do this experiment:
@@ -165,6 +311,78 @@ Current & Magnetic field & Intensity ($\mu A$) \\
     \item \textbf{Resolution of the Null Point:} Accurately determining the exact angle of minimum transmitted intensity (the "darkness" point) is limited by the mechanical resolution (least count) of the precision polarizer mount. Additionally, at near-zero intensity, the signal-to-noise ratio of the photodiode drops, making the exact minimum difficult to pinpoint precisely.
     \item \textbf{Backlash Error:} Mechanical play or backlash in the rotational mount of the analyzing polarizer can introduce discrepancies if the minimum intensity angle is approached from different directions (clockwise vs. counter-clockwise). Though while taking the reading we maintain single convention (clockwise) to make the P2 for minimum intensity.
 \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Propagation of Error}
+
+The Verdet constant is given by
+
+\begin{subequations}
+    \begin{align}
+        V = \frac{\theta}{H L} \\
+        H = \pi N I
+    \end{align}
+\end{subequations}
+
+where $\theta$ is the angle of rotation,$H$ is magnetic field, $I$ is the current, $L$ is the length of the medium, and $N$ is the number of turns per unit length.
+
+Taking the natural logarithm on both sides,
+
+\begin{equation}
+\ln V = \ln \theta - \ln I - \ln L - \ln N
+\end{equation}
+
+Differentiating, we obtain
+
+\begin{equation}
+\boxed{\frac{\Delta V}{V}
+=
+\frac{\Delta \theta}{\theta}
++
+\frac{\Delta H}{H}
++
+\frac{\Delta L}{L}}
+\end{equation}
+
+we calculate the error for a data from the table of observations.
+
+\begin{align*}
+\theta &= 240 \ \text{min}, \\
+H &= 1260.6583, \\
+V &= 0.019037673
+\end{align*}
+
+The instrumental uncertainties are taken as:
+
+\begin{align*}
+\Delta \theta &= 6 \ \text{min}, \\
+\Delta I &= 0.01 \ \text{A}, \\
+L &= 10 \ \text{cm}
+\end{align*}
+
+Since $H = \pi N I$, the relative error in $H$ is
+
+\begin{equation}
+\frac{\Delta H}{H} = \frac{\Delta I}{I} = \frac{0.01}{2.04} = 0.0049
+\end{equation}
+
+Now, substituting into the error formula (note that $L$ is constant):
+
+\begin{equation}
+\frac{\Delta V}{V}
+=
+\frac{6}{240}
++
+0.0049 = 0.0299
+\end{equation}
+
+Hence, the maximum possible error is
+
+\begin{equation}
+\Delta V = 0.019037673 \times 0.0299
+= 5.69 \times 10^{-4}
+\end{equation}
+
+Therefore, the Verdet constant for this data point is $V = (1.90 \pm 0.057)\times 10^{-2}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
