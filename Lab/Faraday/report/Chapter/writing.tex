@@ -324,11 +324,17 @@ Current & Magnetic field & Intensity ($\mu A$) \\
 \end{figure}
 
 \subsection{Verification for Malus's Law}
-The plot of intensity versus current shows a non-linear increase in intensity with increasing current. Since the current through the electromagnet is directly proportional to the magnetic field, and hence to the rotation angle $\theta$, this effectively represents the variation of intensity with polarization angle. According to Malus's law,
-\[
-I = I_{0}cos^{2}\theta
-\]
-the transmitted intensity should vary as a cosine-squared function of the angle between the P1 and P2. In the present setup, the P2 is initially oriented perpendicular to the plane of polarization. Due to this, an additional phase shift of $\frac{\pi}{2}$ is introduced, and the intensity follows a $\sin^2\theta$ dependence instead of $\cos^2\theta$. The fitted curve is:
+According to Malus's law, the intensity of polarised light transmitted through an analyser is given by
+\begin{equation}
+I = I_0 \cos^2(\alpha),
+\end{equation}
+where $\alpha$ represents the angle between the plane of polarisation and the transmission axis of the analyser. 
+
+In the presence of an applied magnetic field, the plane of polarisation undergoes a rotation of $\Psi = V H L$. Consequently, the theoretical expression for the transmitted intensity becomes
+\begin{equation}
+I_{\text{theoretical}} = I_0 \cos^2\left(\alpha_0 + V H L\right).
+\end{equation}
+In the present setup, the P2 is initially oriented perpendicular to the plane of polarization. Due to this, an additional phase shift of $\alpha_{0} = \frac{\pi}{2}$ is introduced, and the intensity follows a $\sin^2\theta$ dependence instead of $\cos^2\theta$. Also we write $H = \pi N i$. Hence the fitted curve is:
 \[
 I(\text{Intensity}) = 57.1 \sin^2(0.19\ i(\text{current}) + 0.03) + 0.7
 \]
@@ -418,6 +424,7 @@ Therefore, the Verdet constant for this data point is $V = (1.90 \pm 0.057)\time
 
 \subsection{Instrumental and Alignment Limitations}
 \begin{itemize}
+    \item \textbf{Initial Alignment and Zero Error:} The most significant systematic error arises from the initial optical alignment. If the polarizers P1 and P2 are not perfectly crossed when the magnetic field is at zero, a baseline offset is introduced. This accounts for the non-zero intercept observed in the linear regression.
     \item \textbf{Detector Non-linearity and Spatial Sensitivity:} The photodiode signal may not respond perfectly linearly to incident light intensity. Furthermore, if the laser beam is not strictly centered on the active area of the photodiode, any slight beam deflection caused by rotating the optical components can cause spurious intensity readings.
     \item \textbf{Magnetic Field Non-uniformity:} The standard theoretical formula $\varphi = VHL$ assumes a perfectly uniform magnetic field $H$ across the entire length of the optical medium. In reality, the field lines begin to diverge near the ends of the solenoid, meaning the magnetic field is not perfectly constant across the entire length of the glass rod.
 \end{itemize}
@@ -429,8 +436,30 @@ Therefore, the Verdet constant for this data point is $V = (1.90 \pm 0.057)\time
     \item \textbf{Backlash Error:} Mechanical play or backlash in the rotational mount of the analyzing polarizer can introduce discrepancies if the minimum intensity angle is approached from different directions (clockwise vs. counter-clockwise). Though while taking the reading we maintain single convention (clockwise) to make the P2 for minimum intensity.
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
 
+To overcome the limitations identified in the preceding section and to improve experimental precision, several refinements can be proposed. Replacing the manual analyser with a high-precision motorised rotation stage integrated with a lock-in amplifier would minimise human reading errors, suppress ambient light interference, and significantly enhance angular resolution.
+
+Furthermore, rather than depending on a pre-calibrated curve for the electromagnet, the implementation of an \textit{in situ} Hall probe (Gaussmeter) would enable real-time and accurate measurement of the magnetic field directly at the sample location.
+
+Thermal effects can be mitigated by incorporating a water-cooling jacket or a thermoelectric (Peltier) cooling system around the sample holder. Such measures would ensure proper thermal isolation from the electromagnet and maintain a stable temperature, thereby allowing the Verdet constant to be determined under controlled conditions.
+
+The present experimental arrangement also provides a robust platform for extended investigations. According to Becquerel's formulation, the Verdet constant exhibits an intrinsic dependence on wavelength, given by
+\begin{equation}
+V \propto \frac{dn}{d\lambda}.
+\end{equation}
+By replacing the single diode laser with a tunable laser source or a white light source combined with narrow bandpass filters, one can experimentally determine the Verdet constant across multiple wavelengths and thereby study the dispersion characteristics of the material.
+
+In addition, the flexibility of the optical rail facilitates the substitution of different active media. Investigating materials such as diamagnetic, paramagnetic, or even liquid samples (e.g., distilled water or saline solutions) would enable a comparative analysis of how variations in electronic structure and spin configurations influence both the magnitude and the direction (sign) of Faraday rotation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-We got Verdet constant of the glass rod is $V = 0.0196 \pm 0.004 \text{ min Oe}^{-1} \text{ cm}^{-1}$ for wavelength $650 \ \text{nm}$. Also we verify the Malus's Law by fitting with the square sin function.
+
+In this experiment, the Faraday magneto-optic effect was successfully observed and quantitatively analysed. The results demonstrated a clear linear dependence between the applied longitudinal magnetic field and the rotation angle of the plane of polarisation. This behaviour was confirmed through a precise linear fit, yielding a coefficient of determination of $R^2 \approx 0.996$, indicating excellent agreement with theoretical expectations.
+
+From this linear relationship, the Verdet constant of the medium was experimentally determined as
+\begin{equation}
+V = (1.96 \pm 0.004) \times 10^{-2} \ \text{ min Oe}^{-1} \text{ cm}^{-1}.
+\end{equation}
+
+In addition, the variation of transmitted light intensity with increasing current (magnetic field strength) was systematically studied. The observed intensity profile closely followed the theoretical $\sin^2$ dependence, thereby providing strong experimental validation that the magnetically induced rotation of polarised light is consistent with Malus's law.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
