@@ -6,7 +6,7 @@
 The Mach-Zehnder interferometer is a simple but powerful tool used to show how light waves interfere with each other. It works by splitting a single beam of light into two separate paths using a "beamsplitter". These two beams travel along different routes before being brought back together by a second beamsplitter. Depending on what happens to the light on those two paths, the beams will either add up (constructive interference) or cancel each other out (destructive interference) when they reach the detectors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objective}
-
+The objective of this experiment is to learn the alignment of the Mach-Zehnder interferometer and observe the fringes. Also, measuring refractive index of air by using fringe shifts in a Mach-Zehnder interferometer is another objective of this experiment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Equipment Required}
 The following equipments are required to perform this experiment:
@@ -22,11 +22,136 @@ The following equipments are required to perform this experiment:
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theory}
+The Mach-Zehnder interferometer operates on the principle of division of amplitude. Unlike division of wavefront (like Young's double-slit), this method takes a single light beam and splits its energy (amplitude) into two paths using a semi-transparent mirror, known as a beamsplitter. These two beams travel along separate paths (the upper and lower arms) before being recombined by a second beamsplitter.
+
+The intensity of the light at the output detectors depends on the phase difference ($\Delta\phi$) between the two beams when they meet. If the waves arrive in phase, they interfere constructively; if they arrive $\pi$ out of phase, they interfere destructively.
+\subsection{Phase Shifts}
+A critical part of understanding this interferometer is the phase change that occurs during reflection. Standard physics "lore" suggests that every reflection causes a $\pi$ phase shift, but this is an oversimplification that violates the law of conservation of energy in this specific setup.
+
+To resolve this, we must look at the Fresnel Equations for a dielectric beamsplitter:
+\begin{itemize}
+    \item \emph{External Reflection (Air to Dielectric):} When light reflects off the front surface (moving from a low refractive index to a high refractive index), it undergoes a phase shift of $\pi$.
+    \item \emph{Internal Reflection (Glass to Dielectric):} When light reflects from "behind" the coating while inside the glass substrate (moving from high to low index), there is no phase shift ($0$).
+    \item \emph{Transmission:} Light passing through the beamsplitter picks up no phase shift other than the delay caused by the optical path length of the glass.
+\end{itemize}
+
+By arranging the second beamsplitter such that its reflecting surface is on the "back" side relative to one path, we ensure that one output path experiences one more $\pi$ shift than the other. This explains why the two outputs (A and B) are always $\pi$ out of phase: when Detector A shows a bright fringe (constructive), Detector B must show a dark fringe (destructive).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Procedure}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{Image/Mach_Zehnder interferometer_schematic.jpg}
+    \caption{Mach-Zehnder interferometer schematic}
+    \label{fig:MZ_sch}
+\end{figure}
+The crucial part of this experiment is to align the setup for the interferometer. We used the following procedure to align it. And later on we observed the fringes and do the subsequent procedure to complete the experiment.
+\begin{enumerate}
+    \item \textbf{Initial Alignment and Beam Path}
+    \begin{itemize}
+    \item \textbf{Laser Alignment:} We began by adjusting the height of the laser source to ensure the beam travelled perfectly parallel to the optical table.
+    \item \textbf{Beamsplitter Placement:} We positioned the first beamsplitter (BS1) and checked the reflecting side to ensure the dielectric coating faced the incoming beam.
+    \item \textbf{Table Orientation:} We aligned the component with the mounting holes on the optical table to maintain a precise $90^\circ$ geometry.
+    \item \textbf{Height Verification:} Using a board at the far end of the table, we checked for any horizontal or vertical shifts in the beam to ensure it remained level over long distances.
+\end{itemize}
+    \item \textbf{Mirror Alignment (Near-Far Method)} To ensure the two arms of the interferometer were perfectly aligned, we used the "Near-Far" method for the mirrors:
+    \begin{itemize}
+        \item \textbf{Far-Point Setting:} We first adjusted the angular knobs of the mirror to fix the beam position at a "far" reference point.
+        \item \textbf{Near-Point Correction:} We then checked the "near" position; if it was not centred, we shifted the mirror mount spatially by hand rather than using the knobs.
+        \item \textbf{Iteration:} We iteratively checked the far point and adjusted the angular position, then checked the near point and adjusted the spatial position, until the beam was perfect at both distances.
+    \end{itemize}
+    \item \textbf{Recombination and Fringe Setup}
+    \begin{itemize}
+        \item \textbf{Second Beamsplitter:} We placed the second beamsplitter at the intersection of the two paths and secured it firmly with mounting screws.
+        \item \textbf{Beam Expansion:} We inserted a lens in front of the laser to expand the beam, allowing us to see the interference pattern more clearly.
+        \item \textbf{Circular fringes}: We found circular fringes by putting a lens in one of the arm, also verified that the fringes at output A and output B were out of phase by $\pi$, ensuring that a bright center at one detector corresponded to a dark center at the other.
+    \end{itemize}
+    \item \textbf{Refractive Index Measurement}
+    \begin{itemize}
+        \item \textbf{Cell Integration:} We inserted a $3 \; cm$ long pressure cell into one arm of the interferometer.
+        \item \textbf{Pressure Variation:} We used a hand-pump to evacuate the cell while carefully recording the readings from the vacuum gauge.
+        \item \textbf{Fringe Counting:} We marked a reference point on the screen and counted the number of fringes  that passed that point as the air was evacuated.
+    \end{itemize}
+\end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data analysis and calculation} 
+\section{Data} 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\toprule
+Pressure(mm Hg) & No of fringes shifted \\ \midrule
+6               & 0                     \\ \hline
+40              & 1                     \\ \hline
+66              & 2                     \\ \hline
+88              & 3                     \\ \hline
+120             & 4                     \\ \hline
+144             & 5                     \\ \hline
+170             & 6                     \\ \hline
+190             & 7                     \\ \hline
+220             & 8                     \\ \hline
+248             & 9                     \\ \hline
+276             & 10                   \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\toprule
+Pressure(mm Hg) & No of fringes shifted \\\midrule
+6               & 0                     \\\hline
+36              & 1                     \\\hline
+60              & 2                     \\\hline
+88              & 3                     \\\hline
+116             & 4                     \\\hline
+144             & 5                     \\\hline
+162             & 6                     \\\hline
+190             & 7                     \\\hline
+214             & 8                     \\\hline
+242             & 9                     \\\hline
+270             & 10                    \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\toprule
+Pressure(mm Hg) & No of fringes shifted \\\midrule
+6               & 0                     \\\hline
+30              & 1                     \\\hline
+58              & 2                     \\\hline
+80              & 3                     \\\hline
+106             & 4                     \\\hline
+134             & 5                     \\\hline
+152             & 6                     \\\hline
+180             & 7                     \\\hline
+210             & 8                     \\\hline
+232             & 9                     \\\hline
+260             & 10                    \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot1.pdf}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot2.pdf}
+    \end{center}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot3.pdf}
+    \end{center}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
