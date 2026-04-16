@@ -24,6 +24,13 @@ The following equipments are required to perform this experiment:
 \section{Theory}
 The Mach-Zehnder interferometer operates on the principle of division of amplitude. Unlike division of wavefront (like Young's double-slit), this method takes a single light beam and splits its energy (amplitude) into two paths using a semi-transparent mirror, known as a beamsplitter. These two beams travel along separate paths (the upper and lower arms) before being recombined by a second beamsplitter.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{Image/Mach_Zehnder interferometer_schematic.jpg}
+    \caption{Mach-Zehnder interferometer schematic}
+    \label{fig:MZ_sch}
+\end{figure}
+
 The intensity of the light at the output detectors depends on the phase difference ($\Delta\phi$) between the two beams when they meet. If the waves arrive in phase, they interfere constructively; if they arrive $\pi$ out of phase, they interfere destructively.
 \subsection{Phase Shifts}
 A critical part of understanding this interferometer is the phase change that occurs during reflection. Standard physics "lore" suggests that every reflection causes a $\pi$ phase shift, but this is an oversimplification that violates the law of conservation of energy in this specific setup.
@@ -36,15 +43,47 @@ To resolve this, we must look at the Fresnel Equations for a dielectric beamspli
 \end{itemize}
 
 By arranging the second beamsplitter such that its reflecting surface is on the "back" side relative to one path, we ensure that one output path experiences one more $\pi$ shift than the other. This explains why the two outputs (A and B) are always $\pi$ out of phase: when Detector A shows a bright fringe (constructive), Detector B must show a dark fringe (destructive).
+
+\subsection{Mathematical Analysis of Phase Difference}
+To understand the device's operation, we track the phase along the Upper ($l_1$) and Lower ($l_2$) paths. Let $t$ represent the optical path length through the beamsplitter glass (see \cref{fig:MZ_sch}).
+
+\subsection{Path to Detector A}
+\begin{itemize}
+    \item \textbf{Upper Path to A:} Reflection at BS1 (Air-to-Dielectric: $+\pi$), Reflection at $100\%$ Mirror ($+\pi$), Transmission through BS2 ($0$). Total: $2\pi + \frac{2\pi(l_1 + t)}{\lambda}$.
+    \item \textbf{Lower Path to A:} Transmission through BS1 ($0$), Reflection at $100\%$ Mirror ($+\pi$), Reflection at BS2 (Internal: $+\pi$ per manual symmetry). Total: $2\pi + \frac{2\pi(l_2 + t)}{\lambda}$.
+\end{itemize}
+The phase difference at A is: $\Delta\Phi_A = \frac{2\pi(l_1 - l_2)}{\lambda} = \delta$.
+
+\subsection{Path to Detector B}
+\begin{itemize}
+    \item \textbf{Upper Path to B:} Identical to A, with no extra phase due to reflection at BS2 (internal) ($0$). Total: $2\pi + \frac{2\pi(l_1 + 2t)}{\lambda}$.
+    \item \textbf{Lower Path to B:} Similar to A and transmission through BS2 ($0$). Total: $\pi + \frac{2\pi(l_2 + 2t)}{\lambda}$.
+\end{itemize}
+The phase difference at B is: $\Delta\Phi_B = \pi + \frac{2\pi(l_1 - l_2)}{\lambda} = \pi + \delta$.
+
+\subsection{Refractive Index and Pressure}
+
+According to the Lorenz-Lorentz equation, the refractive index of a gas is related to its density, which is directly proportional to its pressure ($P$) at a constant temperature. For air at atmospheric pressures, the relationship is approximately linear:
+
+
+$$n - 1 \propto P$$
+
+By evacuating a vacuum cell of length $d$ and counting the number of fringes $\Delta m$ that pass a reference point, we can calculate the slope of the refractive index relative to pressure:
+
+
+$$\frac{n_i - n_f}{P_i - P_f} = \frac{\Delta m \lambda_0 / d}{P_i - P_f}$$
+
+Assuming the refractive index of a vacuum is exactly $1$, we can use this slope to determine the refractive index of air at $1$ atmosphere ($760 \text{ mmHg}$ or $101.3 \text{ kPa}$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Procedure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{Image/Mach_Zehnder interferometer_schematic.jpg}
-    \caption{Mach-Zehnder interferometer schematic}
-    \label{fig:MZ_sch}
+    \includegraphics[width = 0.7\textwidth]{Image/MZ_1.JPG}
+    \caption{Mach-Zehnder interferometer setup (BS stands for beam splitter)}
+    \label{fig:MZ_lab_1}
 \end{figure}
-The crucial part of this experiment is to align the setup for the interferometer. We used the following procedure to align it. And later on we observed the fringes and do the subsequent procedure to complete the experiment.
+
+The crucial part of this experiment is to align the setup for the interferometer (see \cref{fig:MZ_lab_1}). We used the following procedure to align it. And later on we observed the fringes and do the subsequent procedure to complete the experiment.
 \begin{enumerate}
     \item \textbf{Initial Alignment and Beam Path}
     \begin{itemize}
@@ -67,18 +106,77 @@ The crucial part of this experiment is to align the setup for the interferometer
     \end{itemize}
     \item \textbf{Refractive Index Measurement}
     \begin{itemize}
-        \item \textbf{Cell Integration:} We inserted a $3 \; cm$ long pressure cell into one arm of the interferometer.
+        \item \textbf{Cell Integration:} We inserted a pressure cell into one arm of the interferometer (see \cref{fig:MZ_lab_2})
         \item \textbf{Pressure Variation:} We used a hand-pump to evacuate the cell while carefully recording the readings from the vacuum gauge.
         \item \textbf{Fringe Counting:} We marked a reference point on the screen and counted the number of fringes  that passed that point as the air was evacuated.
     \end{itemize}
 \end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{Image/MZ_2.JPG}
+    \caption{Mach-Zehnder interferometer setup with pressure cell (BS stands for beam splitter)}
+    \label{fig:MZ_lab_2}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Data} 
+Now after setting up the interferometer we got fringe patterns which are given bellow.
+
+\begin{figure}[H]
+     \centering
+     % First Subfigure
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[height=5cm, width=\textwidth]{Image/MZ_fringe_1.jpeg}
+         \caption{Fringe from the left lens in \cref{fig:MZ_lab_1}}
+         \label{fig:left_image_1}
+     \end{subfigure}
+     \hfill 
+     % Second Subfigure
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[height=5cm, width=\textwidth]{Image/MZ_fringe_2.jpeg}
+         \caption{Fringe from the top lens in \cref{fig:MZ_lab_1}}
+         \label{fig:right_image_1}
+     \end{subfigure}
+     
+     \caption{Fringes without lens in one arm}
+     \label{fig:finges_without_L}
+\end{figure}
+
+Now we put a lens in one of the arms and we god circular fringes.
+
+\begin{figure}[H]
+     \centering
+     % First Subfigure
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[height=5cm, width=\textwidth]{Image/MZ_fringe_circular_2.jpeg}
+         \caption{Fringe from left lens}
+         \label{fig:left_image_2}
+     \end{subfigure}
+     \hfill 
+     % Second Subfigure
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[height=5cm, width=\textwidth]{Image/MZ_fringe_circular_1.jpeg}
+         \caption{Fringe from top lens}
+         \label{fig:right_image_2}
+     \end{subfigure}
+     
+     \caption{Fringes with lens in one arm}
+     \label{fig:fringes_with_L}
+\end{figure}
+
+Now after in \emph{Part B} we put the pressure cell (see \cref{fig:MZ_lab_2}) and take three set of data to plot the graph between number of fringe changes and pressure changes.
+
+\subsubsection*{Set I}
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \toprule
-Pressure(mm Hg) & No of fringes shifted \\ \midrule
+Pressure (mm Hg) & No of fringes shifted \\ \midrule
 6               & 0                     \\ \hline
 40              & 1                     \\ \hline
 66              & 2                     \\ \hline
@@ -94,11 +192,20 @@ Pressure(mm Hg) & No of fringes shifted \\ \midrule
 \end{tabular}
 \end{table}
 
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot1.pdf}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Set II}
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \toprule
-Pressure(mm Hg) & No of fringes shifted \\\midrule
+Pressure (mm Hg) & No of fringes shifted \\\midrule
 6               & 0                     \\\hline
 36              & 1                     \\\hline
 60              & 2                     \\\hline
@@ -114,12 +221,19 @@ Pressure(mm Hg) & No of fringes shifted \\\midrule
 \end{tabular}
 \end{table}
 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot2.pdf}
+    \end{center}
+\end{figure}
+
+\subsubsection*{Set III}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \toprule
-Pressure(mm Hg) & No of fringes shifted \\\midrule
+Pressure (mm Hg) & No of fringes shifted \\\midrule
 6               & 0                     \\\hline
 30              & 1                     \\\hline
 58              & 2                     \\\hline
@@ -137,21 +251,89 @@ Pressure(mm Hg) & No of fringes shifted \\\midrule
 
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot1.pdf}
-    \end{center}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width = 0.8\textwidth]{../data analysis/Plot2.pdf}
-    \end{center}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
         \includegraphics[width = 0.8\textwidth]{../data analysis/Plot3.pdf}
     \end{center}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis}
+The list of slope from the above graphs: 
+\begin{enumerate}
+    \item \textbf{SET I}: The slope is $0.0379 \pm 0.0004$
+    \item \textbf{SET II}: The slope is $0.0385 \pm 0.0004$
+    \item \textbf{SET III}: The slope is $0.0395 \pm 0.0004$
+\end{enumerate}
+Based on the data we have in the slope, the average slope is calculated. 
+\[
+\text{Avg slope } = \frac{0.0379+0.385+0.0395}{3} = 0.0386
+\]
+Now using the formula mentioned in the theory part we have to calculate the refractive index. 
+\[
+\frac{\Delta n}{\Delta P} = \frac{n_f - n_i}{P_f - P_i} = \frac{\Delta m}{\Delta P} \times \frac{\lambda_i}{d} = \text{slope} \times \frac{\lambda_i}{d}
+\]
+Now here, $\lambda = 655 \; \text{nm}$ and $d = 7.9 \; \text{cm}$. Putting this into main equation we have, 
+
+\[
+\frac{n_f - n_i}{P_f - P_i} = 0.0386 \; \text{mm Hg}^{-1}\times \frac{655 \times 10^{-7} \; \text{cm}}{7.9 \; \text{cm}} = 3.203 \times 10 ^{-7} \; \text{mm Hg}^{-1}
+\]
+Now we use the standard assumption that at $P_i = 0 atm$, $n_i = 1$ which is the refractive index at the vacuum. Now we have to find the refractive index $(n_f)$ at the pressure $P_f = 1 \; \text{atm} = 760 \; \text{mm Hg}$
+\begin{align*}
+    n_f &= n_i + P_f \times 3.203 \times 10 ^{-7} \; \text{mm Hg}^{-1} \\
+    &= 1 + (760 \; \text{mm Hg} \times 3.203 \times 10 ^{-7} \; \text{mm Hg}^{-1}) \\
+    & = 1 + 0.000243 = 1.000243
+\end{align*}
+So we find that the refractive index for air at $1 \; \text{atm}$ pressure is 1.000243 at room temperature.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Error analysis}
+\subsection{Maximum Propagation of Error}
+We have the main formula 
+\begin{align*}
+    &\frac{\Delta n}{\Delta P} = \frac{n_f - n_i}{P_f - P_i} = \frac{\Delta m}{\Delta P} \times \frac{\lambda_i}{d} = \text{slope} \times \frac{\lambda_i}{d} \\
+    \Rightarrow & \Delta n = \Delta P \times \text{slope} \times \frac{\lambda_0}{d}
+\end{align*}
+Now taking the natural log,
+\[
+\ln (\Delta n) = \ln (\Delta P) + \ln (\text{slope}) + \ln \lambda_0 - \ln d
+\]
+Taking the derivative
+\[
+\frac{\delta \Delta n}{\Delta n} = \frac{\delta \Delta P}{\Delta P} + \frac{\delta (\text{slope})}{\text{slope}} - \frac{\delta d}{d}
+\]
+Considering the maximum probable error
+\[
+\left|\frac{\delta \Delta n}{\Delta n}\right| = \left|\frac{\delta \Delta P}{\Delta P}\right| + \left|\frac{\delta (\text{slope})}{\text{slope}}\right| + \left|\frac{\delta d}{d}\right|
+\]
+Now, $\delta \Delta P = 0$ for our case and $\delta d = 0.1 \; \text{cm}$ and $\delta (\text{slope}) = 0.0004$. Using this values,
+\[
+\left|\frac{\delta \Delta n}{\Delta n}\right| = \left|\frac{0.0004}{0.0386}\right| + \left|\frac{0.1}{7.9}\right| = 0.023
+\]
+Now, using $\Delta n = n_f - n_i$ and $\delta \Delta n = \delta n_f - \delta n_i = \delta n_f$, (as we used a constant value for $n_i$)
+\begin{align*}
+    \left|\frac{\delta n_f}{n_f - n_i}\right| &= 0.023 \\
+    \delta n_f = (1.000243 - 1.000000) &  \times 0.023 = 0.000006
+\end{align*}
+
+So the error is $pm 0.000006$, hence our final value for the the refractive index for air at $1 \; \text{atm}$ pressure is $1.000243 \pm 0.000006$ at room temperature.
+
+\subsection{Theoretical Error}
+From the internet we got that \textbf{for $\mathbf{15^{\circ}C}$, n = 1.000277 for $\mathbf{1}$ atm air pressure}. So the percentage error from the theoretical error is
+\[
+\% \; \text{error} = \frac{(1.000277 - 1.000243)}{1.000277} \times 100 = 0.0033 \%
+\]
+\section{Source of Error}
+There are few sources of errors are given bellow
+\begin{enumerate}
+    \item Change of pressure in the vapour cell is not very stable as we have to manually pump air into it, which causes error in taking reading. Because of this ,there is error in observing fringe shift and taking reading of the pressure in the dial.
+    \item The beam-splitters may be not completely $50:50$. which affect the contrast of the fringes.
+\end{enumerate}
+\section{Discussion}
+Here are few key things which can be discussed here.
+\begin{itemize}
+    \item \textbf{Why Fringes}: As I mentioned in the theory that for the perfect alignment we should get only constructive or destructive interference over the screen so only bright or only dark spot should be there. But we saw fringes. The reason is I think misalignment of the beam. It can be either horizontal or vertical misalignment. Based on this misalignment, we can have either vertical or horizontal fringes respectively. 
+    \item \textbf{Fringes without merging of beam}: We observed that even if we blocked the one arm, some fringes are non removable for some setup, we assumed that, this is because of some kind or dirt placed on the mirror or the beam splitter which is causing circular type of fringe pattern.
+    \item \textbf{Small setup easy to align}: We observed that the smaller setup are easy to align. The reason is for larger setup it is difficult to control the divergence of beam and we are not using collimated beam so little divergence angle can cause problem for larger setup.  
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
+We successfully observed the linear as well as circular fringes using the Mach-Zehnder Interferometer. Also using the Pressure cell and fringe shift measurement we found the refractive index of the air at 1 atm pressure at room temperature. Hence we have, the refractive index for air at $1 \; \text{atm}$ pressure is $1.000243 \pm 0.000006$ at room temperature.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
