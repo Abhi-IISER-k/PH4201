@@ -12,11 +12,6 @@ I tried to organise all the lab manuals, study materials, simulation-related fil
 ```text
 PH4201/
 │
-├── extra_book/
-│   ├── hecht-optics-5ed.pdf
-│   ├── Introduction_to_Modern_Optics.pdf
-│   └── Wave optics basic concepts and contemporary trends.pdf
-│
 ├── Lab/
 │   ├── Fabry-Perot/
 │   ├── Faraday/
