@@ -76,6 +76,7 @@ Additional notes and PDFs for conceptual understanding and derivations related t
 ## Recommended References
 
 - *Optics (5th Edition)* — Eugene Hecht
+- *OPTICS 7TH EDITION* - Ajoy Ghatak
 - *Wave Optics: Basic Concepts and Contemporary Trends* — Subhasish Dutta Gupta, Nirmalya Ghosh, Ayan Banerjee
 - *Polarized Light, Revised and Expanded* - Dennis Goldstein, Dennis H. Goldstein
 
